@@ -3,6 +3,20 @@
   "version": "1.0.0",
   "description": "personal website for angela decarlis",
   "main": "index.js",
+  "dependencies": {
+    "browser-sync": "^2.17.5",
+    "browserify": "^13.1.1",
+    "gulp": "^3.9.1",
+    "gulp-imagemin": "^3.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-replace": "^0.5.4",
+    "gulp-sourcemaps": "^2.2.0",
+    "gulp-uglify": "^2.0.0",
+    "gulp-util": "^3.0.7",
+    "lodash": "^4.16.4",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -23,5 +37,8 @@
   "bugs": {
     "url": "https://github.com/DanielJRaine/angela-decarlis-portfolio/issues"
   },
-  "homepage": "https://github.com/DanielJRaine/angela-decarlis-portfolio#readme"
+  "homepage": "https://github.com/DanielJRaine/angela-decarlis-portfolio#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  }
 }
