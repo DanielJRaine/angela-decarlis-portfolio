@@ -8,6 +8,7 @@ var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
 var connect = require('gulp-connect');
+var less = require('gulp-less');
 
 // Lint Task
 gulp.task('lint', function() {
@@ -20,6 +21,13 @@ gulp.task('lint', function() {
 gulp.task('sass', function() {
     return gulp.src('scss/*.scss')
         .pipe(sass())
+        .pipe(gulp.dest('dist/css'));
+});
+
+// Compile our Less
+gulp.task('less', function() {
+    return gulp.src('./css/less/*.less')
+        .pipe(less())
         .pipe(gulp.dest('dist/css'));
 });
 
@@ -80,4 +88,4 @@ gulp.task('connect', function() {
 });
 
 // Default Task
-gulp.task('default', ['lint', 'sass', 'scripts', 'watch', 'connect']);
+gulp.task('default', ['lint', 'sass', 'less', 'scripts', 'watch', 'connect']);
