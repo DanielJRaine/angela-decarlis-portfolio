@@ -18,7 +18,8 @@
 // postcss and cssnext have both been merged on npm, so I tried npm installing postcss-cssnext and replacing all instances of either with postcssCssnext.
 // Will be monitoring to see if anything breaks.
 
-var gulp = require("gulp"),
+var postcssCssnext = require("postcss-cssnext"),
+    gulp = require("gulp"),
     sourcemaps = require("gulp-sourcemaps"),
     gutil = require('gulp-util'),
     imagemin = require('gulp-imagemin'),
@@ -28,7 +29,9 @@ var gulp = require("gulp"),
     rename = require('gulp-rename'),
     source = require('vinyl-source-stream'),
     buffer = require('vinyl-buffer'),
-    uglify = require('gulp-uglify');
+    uglify = require('gulp-uglify'),
+    connect = require('gulp-connect');
+
 
 // main controller tasks
 // add "--type production" to compress CSs and uglify JS
@@ -46,15 +49,15 @@ gulp.task('browser-sync', function() {
 
 // watch tasks
 gulp.task('watch', function () {
-    gulp.watch(['./app/*.html'], ['replace']);
-    gulp.watch(['./app/css/**/*.css'], ['css']);
-    gulp.watch('./app/js/**/*.js', ['js']);
-    gulp.watch('./app/img/**/*', ['imagemin']);
+    gulp.watch(['./*.html'], ['replace']);
+    gulp.watch(['./css/**/*.css'], ['css']);
+    gulp.watch('./js/**/*.js', ['js']);
+    gulp.watch('./img/**/*', ['imagemin']);
 });
 
 // process HTML with cache busting
 gulp.task('replace', function() {
-    return gulp.src('app/*.html')
+    return gulp.src('./*.html')
         .pipe(replace("&#123;&#123;cachebuster&#125;&#125;", Math.floor((Math.random() * 100000) + 1)))
         .pipe(gulp.dest('public/'));
 });
@@ -62,11 +65,11 @@ gulp.task('replace', function() {
 // JavaScript
 gulp.task('js', function () {
   var b = browserify({
-    entries: ['./app/js/app.js'],
+    entries: ['./js/main.js'],
     debug: true
   });
   return b.bundle()
-    .pipe(source('./app/js/app.js'))
+    .pipe(source('./js/app.js'))
     .pipe(buffer())
     .pipe(sourcemaps.init({loadMaps: true}))
     .pipe(gutil.env.type === 'production' ? uglify() : gutil.noop())
@@ -87,7 +90,7 @@ gulp.task("css", function() {
             'compress': gutil.env.type === 'production' ? true : false
         })
     ];
-    return gulp.src('./app/css/main.css')
+    return gulp.src('./css/main.css')
         .pipe(sourcemaps.init())
         .pipe(postcssCssnext(processors))
         .pipe(sourcemaps.write('.'))
@@ -96,10 +99,17 @@ gulp.task("css", function() {
 
 // image minification
 gulp.task('imagemin', function() {
-    return gulp.src('app/img/*')
+    return gulp.src('./img/*')
         .pipe(imagemin({
             optimizationLevel: 5,
             svgoPlugins: [{removeViewBox: false}]
         }))
         .pipe(gulp.dest('public/img'));
+});
+
+gulp.task('connect', function() {
+  connect.server({
+    root: '.',
+    livereload: true
+  });
 });
