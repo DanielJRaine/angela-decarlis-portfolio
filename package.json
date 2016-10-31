@@ -1,47 +1,39 @@
 {
-  "name": "angela-decarlis-portfolio",
+  "name": "portfolio",
   "version": "1.0.0",
-  "description": "personal website for angela decarlis",
-  "main": "index.js",
+  "description": "daniel j ley's portfolio",
+  "main": "index.html",
   "dependencies": {
+    "jshint": "^2.9.4"
+  },
+  "devDependencies": {
     "browser-sync": "^2.17.5",
-    "browserify": "^13.1.1",
-    "gulp-connect": "^5.0.0",
     "gulp": "^3.9.1",
-    "gulp-imagemin": "^3.1.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-connect": "^5.0.0",
+    "gulp-jshint": "",
     "gulp-rename": "^1.2.2",
-    "gulp-replace": "^0.5.4",
-    "gulp-sourcemaps": "^2.2.0",
+    "gulp-sass": "^2.3.2",
     "gulp-uglify": "^2.0.0",
-    "gulp-util": "^3.0.7",
-    "postcss-cssnext": "^2.8.0",
-    "lodash": "^4.16.4",
-    "vinyl-buffer": "^1.0.0",
-    "vinyl-source-stream": "^1.1.0"
+    "gulp-webserver": "^0.9.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/DanielJRaine/angela-decarlis-portfolio.git"
+    "url": "git+https://github.com/DanielJRaine/Portfolio.git"
   },
   "keywords": [
-    "angela",
-    "decarlis",
-    "art",
-    "contra",
-    "caller",
-    "dance"
+    "portfolio",
+    "developer",
+    "resume",
+    "blog"
   ],
-  "author": "Daniel J Ley",
+  "author": "daniel j ley",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/DanielJRaine/angela-decarlis-portfolio/issues"
+    "url": "https://github.com/DanielJRaine/Portfolio/issues"
   },
-  "homepage": "https://github.com/DanielJRaine/angela-decarlis-portfolio#readme",
-  "devDependencies": {
-    "gulp": "^3.9.1",
-    "jshint": "^2.9.4"
-  }
+  "homepage": "https://github.com/DanielJRaine/Portfolio#readme"
 }
