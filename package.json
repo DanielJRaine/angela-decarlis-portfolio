@@ -1,0 +1,27 @@
+{
+  "name": "angela-decarlis-portfolio",
+  "version": "1.0.0",
+  "description": "personal website for angela decarlis",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DanielJRaine/angela-decarlis-portfolio.git"
+  },
+  "keywords": [
+    "angela",
+    "decarlis",
+    "art",
+    "contra",
+    "caller",
+    "dance"
+  ],
+  "author": "Daniel J Ley",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DanielJRaine/angela-decarlis-portfolio/issues"
+  },
+  "homepage": "https://github.com/DanielJRaine/angela-decarlis-portfolio#readme"
+}
