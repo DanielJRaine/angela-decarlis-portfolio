@@ -78,28 +78,29 @@
 
                 <!--work choice-->
                 <div class="item-choice">
-                    <a href="#" class="filter" data-filter="all">all</a>
-                    <a href="#" class="filter" data-filter="fine-arts">fine arts</a>
-                      <div class="item-choice fine-arts">
-                        <a href="#" class="filter" data-filter="musician-portraits">musician portraits</a>
-                        <a href="#" class="filter" data-filter="portraits">portraits</a>
-                      </div>
-                    <a href="#" class="filter" data-filter="graphic-design">graphic design</a>
-                      <div class="item-choice graphic-design">
-                        <a href="#" class="filter" data-filter="logos">logos</a>
-                        <a href="#" class="filter" data-filter="events">events</a>
-                      </div>
-                    <a href="#" class="filter" data-filter="art-tutor">art tutor</a> <!-- formerly class illustration-->
-                      <div class="item-choice art-tutor">
-                        <a href="#" class="filter" data-filter="private-lessons">private lessons</a>
-                        <a href="#" class="filter" data-filter="classes">classes</a>
-                      </div>
+                    <a href="#" class="filter all" data-filter="all">all</a>
+                    <a href="#" class="filter fine-arts" data-filter="fine-arts">fine arts</a>
+                    <a href="#" class="filter graphic-design" data-filter="graphic-design">graphic design</a>
+                    <a href="#" class="filter art-tutor" data-filter="art-tutor">art tutor</a> <!-- formerly class illustration-->
                   <!--  <a href="#" class="filter" data-filter="illustration"> art model </a> -->
                     <hr>
                 </div>
 
                 <section class="row" id="Grid">
                     <!--work 1-->
+                    <div class="item-choice fine-arts sub-menu" style="display: none;">
+                      <a href="#" class="filter" data-filter="musician-portraits">musician portraits</a>
+                      <a href="#" class="filter" data-filter="portraits">portraits</a>
+                    </div>
+                    <div class="item-choice graphic-design sub-menu" style="display: none;">
+                      <a href="#" class="filter" data-filter="logos">logos</a>
+                      <a href="#" class="filter" data-filter="events">events</a>
+                    </div>
+                    <div class="item-choice art-tutor sub-menu" style="display: none;">
+                      <a href="#" class="filter" data-filter="private-lessons">private lessons</a>
+                      <a href="#" class="filter" data-filter="classes">classes</a>
+                    </div>
+
                     <div class="col-lg-6 col-md-12 col-sm-12 col-xs-6 mix fine-arts">
                         <div class="panel panel-default item">
                             <div class="panel-heading">
@@ -351,6 +352,26 @@
     <script src="js/plugins/mixitup/jquery.mixitup.min.js"></script>
 
     <script src="js/main.js"></script>
+    <script type="text/javascript">
+      $('.fine-arts.filter').click(function(){
+        $('.fine-arts.sub-menu').show();
+        $('.graphic-design.sub-menu').hide();
+        $('.art-tudor.sub-menu').hide();
+      });
+      $('.graphic-design.filter').click(function(){
+        $('.graphic-design.sub-menu').show();
+        $('.fine-arts.sub-menu').hide();
+        $('.art-tudor.sub-menu').hide();
+      });
+      $('.art-tutor.filter').click(function(){
+        $('.art-tudor.sub-menu').show();
+        $('.graphic-design.sub-menu').hide();
+        $('.fine-arts.sub-menu').hide();
+      });
+      $('.all.filter').click(function(){
+        $('.sub-menu').hide();
+      });
+    </script>
 </body>
 
 </html>
